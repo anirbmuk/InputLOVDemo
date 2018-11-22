@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout id="pgl1" layout="scroll" styleClass="AFStretchWidth">
+        <af:panelFormLayout id="pfl1">
+            <af:outputText value="#{bindings.KeyAttr.inputValue}" shortDesc="#{bindings.KeyAttr.hints.tooltip}" id="ot1"
+                           rendered="false">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.KeyAttr.format}"/>
+            </af:outputText>
+            <af:inputListOfValues id="ilov1" popupTitle="Search and Select: #{bindings.FirstNameAttr.hints.label}"
+                                  value="#{bindings.FirstNameAttr.inputValue}"
+                                  label="#{bindings.FirstNameAttr.hints.label}"
+                                  model="#{bindings.FirstNameAttr.listOfValuesModel}"
+                                  required="#{bindings.FirstNameAttr.hints.mandatory}"
+                                  columns="#{bindings.FirstNameAttr.hints.displayWidth}"
+                                  shortDesc="#{bindings.FirstNameAttr.hints.tooltip}" immediate="true"
+                                  returnPopupListener="#{pageFlowScope.lovBean.onPopupReturn}">
+                <!--<f:validator binding="#{bindings.FirstNameAttr.validator}"/>-->
+                <af:clientListener method="onFNameChange" type="valueChange"/>
+                <af:serverListener method="#{pageFlowScope.lovBean.onFNameChange}" type="FNameChange"/>
+            </af:inputListOfValues>
+            <af:outputText value="#{bindings.EmpStatusAttr.inputValue}" inlineStyle="font-weight: bold;"
+                           shortDesc="#{bindings.EmpStatusAttr.hints.tooltip}" id="ot2" partialTriggers="ilov1"/>
+            <f:facet name="footer">
+                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                    <af:button text="Reset" id="b1" action="reset"/>
+                    <af:spacer width="10" height="10" id="s1"/>
+                    <af:button text="Print" id="b2" actionListener="#{pageFlowScope.lovBean.printRow}"/>
+                </af:panelGroupLayout>
+            </f:facet>
+        </af:panelFormLayout>
+    </af:panelGroupLayout>
+</jsp:root>

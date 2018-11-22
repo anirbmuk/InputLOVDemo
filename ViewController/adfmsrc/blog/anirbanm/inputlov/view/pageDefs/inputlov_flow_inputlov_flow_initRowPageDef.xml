@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="inputlov_flow_inputlov_flow_initRowPageDef" Package="blog.anirbanm.inputlov.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="initRow" RequiresUpdateModel="true" Action="invokeMethod" MethodName="initRow"
+                  IsViewObjectMethod="false" DataControl="InputLOVModuleDataControl"
+                  InstanceName="bindings.initRow.dataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

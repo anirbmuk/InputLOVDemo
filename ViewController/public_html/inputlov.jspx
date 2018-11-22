@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="Input LOV Demo" id="d1">
+            <af:form id="f1">
+                <af:region value="#{bindings.inputlovflow1.regionModel}" id="r1" inlineStyle="margin: 20px;"/>
+            </af:form>
+            <f:facet name="metaContainer">
+                <af:resource type="javascript">
+                    function onFNameChange(evt) {
+                        const inputlov = evt.getSource();
+                        AdfCustomEvent.queue(inputlov, "FNameChange", { }, true);
+                        evt.cancel();
+                    }
+                </af:resource>
+            </f:facet>
+        </af:document>
+    </f:view>
+</jsp:root>

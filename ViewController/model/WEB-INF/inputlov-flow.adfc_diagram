@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall9">
+      <property
+         name="activityId">initRow</property>
+      <property
+         name="x">203.5</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>initRow&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">151.79883</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <View
+      id="View10">
+      <property
+         name="activityId">LovView</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">420.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>LovView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">152.09766</property>
+      <property
+         name="page">/WEB-INF/LovView.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View10"
+      to="MethodCall9">
+      <property
+         name="tosrcid">__4</property>
+      <property
+         name="fromOutcome">reset</property>
+      <property
+         name="fromsrcid">__3</property>
+      <property
+         name="sdm:polyPoints">L46,379.5,148.24707,244.50775,147.94824,R46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase12"
+      from="MethodCall9"
+      to="View10">
+      <property
+         name="tosrcid">__2</property>
+      <property
+         name="fromOutcome">initRow</property>
+      <property
+         name="fromsrcid">__1</property>
+      <property
+         name="sdm:polyPoints">R54,244.5,154.94824,379.49225,155.24707,L54</property>
+   </ControlFlowCase>
+</SDM>

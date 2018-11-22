@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.9.14" id="DataBindings"
+             SeparateXMLFiles="false" Package="blog.anirbanm.inputlov.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/inputlov.jspx" usageId="blog_anirbanm_inputlov_view_inputlovPageDef"/>
+    <page path="/WEB-INF/LovView.jsff" usageId="blog_anirbanm_inputlov_view_LovViewPageDef"/>
+    <page path="/WEB-INF/inputlov-flow.xml#inputlov-flow@initRow"
+          usageId="blog_anirbanm_inputlov_view_inputlov_flow_inputlov_flow_initRowPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="blog_anirbanm_inputlov_view_inputlovPageDef" path="blog.anirbanm.inputlov.view.pageDefs.inputlovPageDef"/>
+    <page id="blog_anirbanm_inputlov_view_LovViewPageDef" path="blog.anirbanm.inputlov.view.pageDefs.LovViewPageDef"/>
+    <page id="blog_anirbanm_inputlov_view_inputlov_flow_inputlov_flow_initRowPageDef"
+          path="blog.anirbanm.inputlov.view.pageDefs.inputlov_flow_inputlov_flow_initRowPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="InputLOVModuleDataControl" Package="blog.anirbanm.inputlov.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="InputLOVModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="LovViewPageDef"
+                Package="blog.anirbanm.inputlov.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TransientVO1" RangeSize="25" DataControl="InputLOVModuleDataControl" id="TransientVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="TransientVO1Iterator" id="KeyAttr">
+      <AttrNames>
+        <Item Value="KeyAttr"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="TransientVO1Iterator" StaticList="false" Uses="LOV_FirstNameAttr" id="FirstNameAttr"/>
+    <attributeValues IterBinding="TransientVO1Iterator" id="EmpStatusAttr">
+      <AttrNames>
+        <Item Value="EmpStatusAttr"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="checkStatus" RequiresUpdateModel="true" Action="invokeMethod" MethodName="checkStatus"
+                  IsViewObjectMethod="false" DataControl="InputLOVModuleDataControl"
+                  InstanceName="bindings.checkStatus.dataControl.dataProvider"
+                  ReturnName="data.InputLOVModuleDataControl.methodResults.checkStatus_checkStatus_dataControl_dataProvider_checkStatus_result"/>
+    <methodAction id="printRow" RequiresUpdateModel="true" Action="invokeMethod" MethodName="printRow"
+                  IsViewObjectMethod="false" DataControl="InputLOVModuleDataControl"
+                  InstanceName="bindings.printRow.dataControl.dataProvider"
+                  ReturnName="data.InputLOVModuleDataControl.methodResults.printRow_printRow_dataControl_dataProvider_printRow_result"/>
+  </bindings>
+</pageDefinition>

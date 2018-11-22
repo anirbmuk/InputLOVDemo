@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransientVO"
+  Version="12.2.1.9.14"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="blog.anirbanm.inputlov.model.vo.TransientVORowImpl"
+  ComponentClass="blog.anirbanm.inputlov.model.vo.TransientVOImpl"
+  PageIterMode="Full"
+  FetchMode="FETCH_AS_NEEDED"
+  Passivate="All"
+  MaxFetchSize="1">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="blog.anirbanm.inputlov.model.vo.TransientVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="EmployeesVA"
+    ViewObjectName="blog.anirbanm.inputlov.model.vo.EmployeesVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_FirstNameAttr"
+    ListVOName="EmployeesVA"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FirstNameAttr"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FirstName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FirstName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="EmployeesVOCriteria"/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT 1 AS KEY_ATTR FROM dual]]></SQLQuery>
+  <ViewAttribute
+    Name="KeyAttr"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="KEY_ATTR"
+    Expression="KEYATTR"
+    SQLType="INTEGER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="blog.anirbanm.inputlov.model.vo.TransientVO.KeyAttr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FirstNameAttr"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    LOVName="LOV_FirstNameAttr">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="blog.anirbanm.inputlov.model.vo.TransientVO.FirstNameAttr_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EmpStatusAttr"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="blog.anirbanm.inputlov.model.vo.TransientVO.EmpStatusAttr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EmpExistsAttr"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    SQLType="BIT"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="KeyAttr"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="blog.anirbanm.inputlov.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

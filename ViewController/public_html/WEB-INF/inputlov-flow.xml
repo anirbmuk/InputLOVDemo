@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="inputlov-flow">
+    <default-activity>initRow</default-activity>
+    <data-control-scope>
+      <isolated/>
+    </data-control-scope>
+    <managed-bean id="__5">
+      <managed-bean-name>lovBean</managed-bean-name>
+      <managed-bean-class>blog.anirbanm.inputlov.view.bean.BackingManager</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="LovView">
+      <page>/WEB-INF/LovView.jsff</page>
+    </view>
+    <method-call id="initRow">
+      <method>#{bindings.initRow.execute}</method>
+      <outcome>
+        <fixed-outcome>initRow</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>initRow</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>initRow</from-outcome>
+        <to-activity-id>LovView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>LovView</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>reset</from-outcome>
+        <to-activity-id>initRow</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
